@@ -1,8 +1,8 @@
-# 🧠 Embedding Demo Projects — AI Engineering Playground
+# Embedding Demo Projects — AI Engineering Playground
 
 This repo contains multiple mini projects that demonstrate how embeddings work and why they are essential in modern AI applications — from semantic similarity to vector search and clustering.
 
-## 📁 Project Structure
+## Project Structure
 
 - `text_embedding_cosine/`: Compare two sentences using cosine similarity.
 - `visualization_tsne/`: Visualize sentence embeddings using t-SNE.
@@ -10,7 +10,7 @@ This repo contains multiple mini projects that demonstrate how embeddings work a
 - `multiple_clustering/`: Cluster multiple sentences using KMeans + embedding.
 - `vector_db_intro/`: Simple intro to using ChromaDB for vector search.
 
-## 🚀 How to Run
+## How to Run
 
 ```bash
 # install dependencies
