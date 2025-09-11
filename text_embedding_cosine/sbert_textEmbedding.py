@@ -1,9 +1,3 @@
-# Text Embedding with Sentence-Transformers (SBERT) 
-# !!!!   BERPOTENSI UNTUK DIJADIKAN mini project    !!!
-# !!!!   BERPOTENSI UNTUK DIJADIKAN mini project    !!!
-# !!!!   BERPOTENSI UNTUK DIJADIKAN mini project    !!!
-
-
 from sentence_transformers import SentenceTransformer 
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.manifold import TSNE

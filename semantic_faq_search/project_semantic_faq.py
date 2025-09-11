@@ -11,11 +11,6 @@ system mencari jawaban yg atleast agak mirip (another term: SIMILARITY) dengan a
 nah apabila ada, maka system langsung menjawab jawaban yg SIMILAR dengan pertanyaan yg telah diajukan oleh user
 '''
 
-# !!!!   BERPOTENSI UNTUK DIJADIKAN mini project    !!!
-# !!!!   BERPOTENSI UNTUK DIJADIKAN mini project    !!!
-# !!!!   BERPOTENSI UNTUK DIJADIKAN mini project    !!!
-
-
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.manifold import TSNE

@@ -1,8 +1,3 @@
-# 
-# !!!!   BERPOTENSI UNTUK DIJADIKAN mini project    !!!
-# !!!!   BERPOTENSI UNTUK DIJADIKAN mini project    !!!
-# !!!!   BERPOTENSI UNTUK DIJADIKAN mini project    !!!
-
 import chromadb 
 from chromadb.utils.embedding_functions.ollama_embedding_function import OllamaEmbeddingFunction
 from chromadb.config import Settings
