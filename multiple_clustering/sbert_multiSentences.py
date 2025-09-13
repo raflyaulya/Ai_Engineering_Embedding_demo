@@ -21,7 +21,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 #     'i enjoy cooking asian foods',   # food 
 #     'lets train some model of neural network',  # tech
 #     'i wanna go to singapore for vacation', # travelling 
-#     'cooking fried rice is fun, and it is delicious'  # food 
+#     'cooking fried rice is delicious and i like it'  # food 
 # ]
 
 n_sentences = int(input('\nhow many sentences u wanna input?\n'))  # total = 7 sentences 

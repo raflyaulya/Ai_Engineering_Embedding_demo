@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
 import matplotlib.cm as cm
 from sklearn.cluster import KMeans
-
+from scipy.spatial import ConvexHull
 
 # Model: text to embedding 
 model = st('all-MiniLM-L6-v2') 
@@ -12,8 +12,9 @@ sentences = [
     'Embedding is an amazing method!',
     'AI needs to understand semantic relationships',
     'one of the ai method is embedding system',
-    'The weather is sunny and warm today',
-    'It is a bright and hot day',
+    'ai engineering is the most famous topic today '
+    # 'The weather is sunny and warm today',
+    # 'It is a bright and hot day', 
     'Freezing conditions with ice formation expected',
     'Climate change affects global weather patterns',
     'Global warming is altering traditional seasons',
@@ -39,29 +40,36 @@ print('\nsentence:', sentences[1], ' \nsecond embedded sentence:\n', res_of_embe
 # # ===================================================================
 # #               VISUALIZATION  OF  EMBEDDING
 
-tsne = TSNE(n_components=2, perplexity=total_sentences-2) 
-embeddings_2d = tsne.fit_transform(embeddings)
+# Define number of clusters
+cluster_num = 2
+kmeans = KMeans(n_clusters=cluster_num, random_state=42)
+labels = kmeans.fit_predict(embeddings)
 
-# plotting 
-plt.scatter(embeddings_2d[:, 0], embeddings_2d[:, 1])  
-plt.grid()
+# Reduce to 2D
+tsne = TSNE(n_components=2, perplexity=total_sentences-2, random_state=42)
+reduced = tsne.fit_transform(embeddings)
+# Create plot
+plt.figure(figsize=(12, 7))
+plt.grid(True)
+colormap = cm.get_cmap('tab10', cluster_num)
+
+# Plot Convex Hull (arsiran)
+for cluster_id in range(cluster_num):
+    cluster_points = reduced[labels == cluster_id]
+    if len(cluster_points) >= 3:
+        hull = ConvexHull(cluster_points)
+        hull_pts = cluster_points[hull.vertices]
+        plt.fill(hull_pts[:, 0], hull_pts[:, 1],
+                 color=colormap(cluster_id),
+                 alpha=0.2,
+                 label=f'Cluster {cluster_id}')
+
+# Scatter points + text annotation
+for i, (txt, label) in enumerate(zip(sentences, labels)):
+    plt.scatter(reduced[i, 0], reduced[i, 1], color=colormap(label), s=60)
+    plt.annotate(txt, (reduced[i, 0]+0.5, reduced[i, 1]+0.5), fontsize=9)
+
+plt.title('Visualization of Sentence Embeddings with Clustering using SBERT + t-SNE', fontsize=13)
+plt.legend()
+plt.tight_layout()
 plt.show()
-
-# kmeans = KMeans(n_clusters=cluster_num, random_state=42,)  
-# labels = kmeans.fit_predict(embeddings)
-
-# tsne = TSNE(n_components=2, random_state=42, perplexity=total_sentences-2)  # n_components = 2 
-# reduced = tsne.fit_transform(embeddings)
-
-# plt.figure(figsize=(10, 6))  
-# plt.grid(True)
-
-# # colormap: ambil warna berbeda based on total of cluster
-# colormap = cm.get_cmap('tab20', cluster_num)
-
-# for i, (txt, label) in enumerate(zip(sentences, labels)):
-#     plt.scatter(reduced[i, 0], reduced[i, 1], color=colormap(label), s=60)
-#     plt.annotate(txt, (reduced[i, 0], reduced[i,1]), fontsize=8)
-
-# plt.title('Visualization of Multiple sentences & CLustering using SBERT', fontsize=12) 
-# plt.show()
