@@ -21,26 +21,47 @@ model =  SentenceTransformer('all-MiniLM-L6-v2')
 
 faq_data = [
     {
-        "question": "Bagaimana cara reset password?", 
-        "answer": "Klik 'Lupa Password' lalu ikuti petunjuknya. Kamu juga bisa pergi ke pengaturan, dan tekan \"Lupa Password\"."},
-    {
-        "question": "Apa itu langganan premium?",
-        "answer": "Langganan premium memberi akses ke fitur eksklusif. So, kamu bisa mendapatkan akses lebih selama 1 bulan "},
-    {
-        "question": "Bagaimana cara mengganti email?", 
-        "answer": "Masuk ke pengaturan akun lalu ubah email, lalu tekan \"Ubah alamat email\". "},
-    {
-        "question": "Apakah bisa membatalkan pesanan?", 
-        "answer": "Bisa, jika pesanan belum dikirim. Namun, sebelum membatalkan pesanan, mohon teliti terlebih dahulu terhadap apa yang telah anda pesan"}, 
-    {
-        'question': 'Apakah akan mendapatkan bonus, jika mengundang atau mengajak teman untuk menggunakan aplikasi ini?', 
-        'answer': 'Pastinya! kamu akan mendapatkan bonus voucher belanja sebesar Rp. XXX'
+        "question": "How do I reset my password?",
+        "answer": "Click 'Forgot Password' and follow the instructions. You can also go to settings and tap \"Forgot Password\"."
     },
     {
-        'question':'apakah akan ada event atau acara atau agenda dalam waktu terdekat yang diadakan oleh company atau aplikasi ini?', 
-        'answer': 'Untuk acara dan event dalam waktu terdekat, tetap staytune di aplikasi AAAA ini ya!! '
+        "question": "What is a premium subscription?",
+        "answer": "A premium subscription gives you access to exclusive features. So, you can enjoy more access for 1 month."
+    },
+    {
+        "question": "How do I change my email?",
+        "answer": "Go to your account settings, update your email, and tap \"Change email address\"."
+    },
+    {
+        "question": "Can I cancel an order?",
+        "answer": "Yes, as long as the order hasn't been shipped yet. However, please carefully review your order details before cancelling."
+    },  
+    {
+        "question": "Will I get a bonus for inviting friends to use this app?",
+        "answer": "Absolutely! You'll receive a shopping voucher bonus worth Rp. XXX."
+    },
+    {
+        "question": "Are there any upcoming events or agendas hosted by the company or this app?",
+        "answer": "Stay tuned on the AAAA app for updates on upcoming events and agendas!"
+    },
+    {
+        "question": "How do I upgrade or downgrade my subscription plan?",
+        "answer": "Go to your subscription settings, and choose 'Change Plan' to upgrade or downgrade as needed."
+    },
+    {
+        "question": "How can I contact customer support?",
+        "answer": "You can contact our support team via the 'Help Center' in the app or email us at support@example.com."
+    },
+    {
+        "question": "Where can I view my order history?",
+        "answer": "Go to 'My Orders' section in your profile to view all your past orders and their statuses."
+    },
+    {
+        "question": "Can I change my delivery address after placing an order?",
+        "answer": "If your order hasn’t shipped yet, yes! You can edit your delivery address in the 'My Orders' section."
     }
 ]
+
 
 # embedding all question in FAQ
 faq_questions = [item['question'] for item in faq_data]
@@ -65,20 +86,3 @@ while True:
         answer = find_best_answer(user_quest) 
         print('\nAnswer:\n', answer)
         print('\n======================================================\n') 
-
-# ===========================================================================
-#                               VISUALIZATION PART 
-
-# sentences = faq_questions + [user_quest] 
-# embeddings = model.encode(sentences)  
-
-# tsne = TSNE(n_components=2, perplexity=4, random_state=42)  
-# points = tsne.fit_transform(embeddings) 
-
-# plt.figure(figsize=(8, 5)) 
-# plt.grid()
-# for i , label in enumerate(sentences): 
-#     plt.scatter(points[i][0], points[i][1]) 
-#     plt.annotate(label, (points[i][0] +.1, points[i][1] +.1)) 
-# plt.title('Visualisasi FAQ Embedding + User question') 
-# plt.show()

@@ -13,8 +13,6 @@ sentences = [
     'AI needs to understand semantic relationships',
     'one of the ai method is embedding system',
     'ai engineering is the most famous topic today '
-    # 'The weather is sunny and warm today',
-    # 'It is a bright and hot day', 
     'Freezing conditions with ice formation expected',
     'Climate change affects global weather patterns',
     'Global warming is altering traditional seasons',
@@ -23,7 +21,6 @@ sentences = [
 
 total_sentences = len(sentences) 
 cluster_num =2
-# print('total n sentences:', total_sentences)
 
 embeddings = model.encode(sentences) 
 result = embeddings.shape
@@ -53,7 +50,7 @@ plt.figure(figsize=(12, 7))
 plt.grid(True)
 colormap = cm.get_cmap('tab10', cluster_num)
 
-# Plot Convex Hull (arsiran)
+# Plot Convex Hull (the cluster area)
 for cluster_id in range(cluster_num):
     cluster_points = reduced[labels == cluster_id]
     if len(cluster_points) >= 3:

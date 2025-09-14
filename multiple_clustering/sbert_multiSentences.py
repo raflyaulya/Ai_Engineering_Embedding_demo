@@ -14,15 +14,15 @@ import os
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # example of sentences 
-# list_of_sentences = [
-#     'i love deep learning',          # Tech
-#     'i like traveling to new york',  # Traveliing 
-#     'machine learning is awesome',    # tech
-#     'i enjoy cooking asian foods',   # food 
-#     'lets train some model of neural network',  # tech
-#     'i wanna go to singapore for vacation', # travelling 
-#     'cooking fried rice is delicious and i like it'  # food 
-# ]
+''' list_of_sentences = [
+    'i love deep learning',          # Tech
+    'i like traveling to new york',  # Traveliing 
+    'machine learning is awesome',    # tech
+    'i enjoy cooking asian foods',   # food 
+    'lets train some model of neural network',  # tech
+    'i wanna go to singapore for vacation', # travelling 
+    'cooking fried rice is delicious and i like it'  # food 
+]'''
 
 n_sentences = int(input('\nhow many sentences u wanna input?\n'))  # total = 7 sentences 
 print()
@@ -34,11 +34,6 @@ for i in range(n_sentences):
 # print(list_of_sentences)
 
 embeddings = model.encode(list_of_sentences)
-
-# embedding normalization 
-# vec1_norm = vec1 / np.linalg.norm(vec1)
-
-# embeddings = model.encode(list_of_sentences)
 
 # how many clusters?  definisikan ada berapa banyak cluster/kelompok/grup 
 cluster_num= int(input('\nhow many cluster? \n'))    # total  =  3 clusters
