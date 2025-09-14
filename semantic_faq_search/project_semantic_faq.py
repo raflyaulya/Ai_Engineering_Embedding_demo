@@ -1,16 +1,6 @@
 # ===========================              MINI PROJECT OF EMBEDDING SYSTEM          ============================
 #                                            Semantic FAQ Search
 
-'''
-sebenarnya ini lebih mirip kearah tanya-jawab chatbot!
-
-How to use ? 
-kek contoh nya kita tanya something, dan system bakal cari tau dari pertanyaan yg diajukan oleh user, 
-apakah faq_data ada yg sama dengan apa yg telah "dirumuskan" didalam system itu sendiri, sehingga secara otomatis, 
-system mencari jawaban yg atleast agak mirip (another term: SIMILARITY) dengan apa yg telah dirumuskan, 
-nah apabila ada, maka system langsung menjawab jawaban yg SIMILAR dengan pertanyaan yg telah diajukan oleh user
-'''
-
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.manifold import TSNE

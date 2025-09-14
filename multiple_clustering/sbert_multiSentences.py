@@ -31,11 +31,10 @@ list_of_sentences = []
 for i in range(n_sentences):
     sentences_input = input()
     list_of_sentences.append(sentences_input)
-# print(list_of_sentences)
 
 embeddings = model.encode(list_of_sentences)
 
-# how many clusters?  definisikan ada berapa banyak cluster/kelompok/grup 
+# how many clusters?  
 cluster_num= int(input('\nhow many cluster? \n'))    # total  =  3 clusters
 print()
 
